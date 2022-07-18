@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    
+    <script type="text/javascript">
+
+        function tryCatch()
+        {
+
+            try
+            {
+                var a = Number(prompt("Introducir un numero"));
+                var b = Number(prompt("Introducir otro numero"));
+
+                if(isNaN(a) || isNaN(b) ){
+
+                    throw "Has introducido un numero invalido"
+                }
+                alert("El resultado es "+(a+b));
+
+            }
+
+            catch(error){
+
+                alert("Error:"+error);
+            }
+        }
+
+        function ifelse(){
+
+            var a = Number(prompt("Introduzca que hora es en horas y en formato miliar" ));
+
+            if(a >= 19){
+                alert("Es muy tarde para trabajar")
+            }else if(a <=6) {
+                alert("Es muy temprano para trabajar")
+            }else{
+                alert("Tiempo correcto para trabajar")
+            }
+
+        }
+
+        function sswitch(){
+
+            var a = Number(prompt("Introduzca un numero del 1 al 10 y gane un premio" ));
+
+            switch(a){
+                case 1:
+                case 2:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    alert("No ganaste esta vez, vuelve a intentarlo");
+                    Break;
+                case 3:
+                    alert("Ganaste el premio");
+            }
+        }
+
+
+        function Mathh(){
+
+            var a = Number(prompt("Introduzca un numero para elevarlo al caudrado" ));
+
+            var a = Math.pow(a,2);
+
+            alert("El numero elevado al cuadrado es ="+a);
+
+        }
+
+        function Arreglo(){
+            var b = Number(prompt("Introduzca la longitud del arreglo" ));
+
+            var a = [];
+
+            for(i=0; i<b; i++){
+                var c = Number(prompt("Introduzca un numero a incluir en el arreglo" ));
+                a.push(c);
+            }
+
+            alert("Tu arreglo es"+a);
+        }
+
+
+        function Stringg(){
+            var texto = prompt("Introduzca una palabra u oracion");
+            var textoString = new String(texto);
+            alert("El tamaño del texto es "+textoString.length+" letras");
+
+
+        }
+
+
+
+        function forr(){
+         var b = Number(prompt("Introduzca la longitud del arreglo" ));
+
+         var a = [];
+
+        for(i=0; i<b; i++){
+                var c = Number(prompt("Introduzca un numero a incluir en el arreglo" ));
+                a.push(c);
+        }
+
+
+        for(let i = 0; i < b; i++) {
+        
+            let min = i;
+
+            for(let j = i+1; j < b; j++){
+                if(a[j] < a[min]) {
+                    min=j; 
+                }
+            }
+
+            /*Inserta el numero minimo encontrado en la posicion correcta*/
+            if (min != i) {
+                
+                let tmp = a[i]; 
+                a[i] = a[min];
+                a[min] = tmp;      
+            }
+            
+    }
+
+            alert("Tu arreglo ordenado es "+a);
+
+    }
+
+
+    function whilee(){
+
+        let a = [];
+
+        var c = Number(prompt("Introduzca el numero mayor de la secuencia"));
+        var d = Number(prompt("Introduzca el numero menor de la secuencia"))
+
+        while(c > d){
+            c--;
+            a.push(c)
+        }
+
+        alert("La cuenta regresiva es "+a);
+    }
+
+    function HTMLPorId(){
+
+        var texto = prompt("Introduzca el nuevo texto");
+
+        document.getElementById("ElementoPorId").innerHTML = texto;
+    }
+
+    function HtmlPorClase(){
+
+        a  = [];
+        a[0]  = prompt("Introduzca el nuevo texto del parrafo 1");
+        a[1]  = prompt("Introduzca el nuevo texto del parrafo 1");
+
+
+     
+        for(i=0; i < a.length;i++){
+        document.getElementsByClassName("class1")[i].innerHTML = a[i];
+        document.getElementsByClassName("class1")[i].innerHTML = a[i];
+
+        }
+
+    }
+
+
+    function HTMLPorEtiqueta(){
+        var texto = prompt("Introduzca el nuevo texto de etiqueta p");
+
+        document.getElementsByTagName("p")[2].innerHTML = "texto";
+
+
+    }
+
+    function HTMLSelectoresCSS(){
+        var texto = prompt("Introduzca el nuevo texto de etiqueta p");
+
+        document.querySelector("div p").innerHTML = texto;
+
+    }
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <h1>DOM</h1>
+    <br>
+
+    <h2>Html por ID</h2>
+
+    <h3 id ="ElementoPorId"> ID ¨ElementoHTMLPorId¨ </h3>
+    <input type="button" onclick="HTMLPorId();" value="Cambiar el texto por Id"/>
+
+    <br>
+
+    <h2>Html por clase</h2>
+
+    <p class = "class1">Clase 1</p>
+    <p class = "class1">Clase 1</p>
+    <input type="button" onclick="HtmlPorClase();" value="Cambiar el texto por Nombre de clase: clase 1"/>
+
+
+    <br><br>
+
+    
+    <h2>Html por etiqueta</h2>
+
+    <p>Etiqueta p</p>
+    <input type="button" onclick="HTMLPorEtiqueta();" value="Cambiar el texto por Nombre de etiqueta: p"/>
+
+    <br><br>
+
+    <h2>Html por CSS</h2>
+
+    <div>
+        <H3> div</H3>
+        <p>P dentro de div</p>
+        <input type="button" onclick="HTMLSelectoresCSS();" value="Cambiar el texto por selectores CSS: div p"/>
+
+    </div>
+
+    <br>
+
+
+    <h1>Control de flujo y manejo de errores</h1>
+
+    <input type="button" onclick="tryCatch();" value="Try Catch and error" style="display:block;"/>
+
+    <input type="button" onclick="ifelse();" value="IfElse" style="display:block;"/>
+
+    <input type="button" onclick="sswitch();" value="Switch" style="display:block;"/>
+
+
+    <h1>Bucles e iteracion</h1>
+
+    <input type="button" onclick="forr();" value="For" style="display:block;"/>
+
+    <input type="button" onclick="whilee();" value="While" style="display:block;"/>
+
+    <h1>Formateo de texto, Numeros y fechas e Colecciones indexadas</h1>
+
+    <input type="button" onclick="Mathh();" value="Math and number" style="display:block;"/>
+
+    <input type="button" onclick="Arreglo();" value="Arreglos" style="display:block;">
+
+    <input type="button" onclick="Stringg();" value="String" style="display:block;"/>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
